@@ -273,7 +273,7 @@ public class leetcode {
                             cursor += interval;
                         } else if (j % 2 == 1) {
                             res.append(s.charAt(cursor));
-                            cursor += magic -interval;
+                            cursor += magic - interval;
                         } else {
                             res.append(s.charAt(cursor));
                             cursor += interval;
@@ -285,8 +285,61 @@ public class leetcode {
         }
     }
 
+    //problem 7
+    //Reverse Integer
+    static class Solution7 {
+        //my without consider overflow
+        //        public int reverse(int x) {
+        //            ArrayList<Integer> array = new ArrayList<Integer>();
+        //            while (x / 10 != 0) {
+        //                array.add(x % 10);
+        //                x = x / 10;
+        //            }
+        //            array.add(x);
+        //            int res = 0;
+        //            Iterator<Integer> it = array.iterator();
+        //            while (it.hasNext()) {
+        //                res = res * 10  + it.next();
+        //            }
+        //            return res;
+        //        }
+        public int reverse(int x) {
+            int result = 0;
+
+            while (x != 0) {
+                int tail = x % 10;
+                int newResult = result * 10 + tail;
+                if ((newResult - tail) / 10 != result) {
+                    return 0;
+                }
+                result = newResult;
+                x = x / 10;
+            }
+
+            return result;
+        }
+    }
+
+    //problem 9
+    // Palindrome Number
+    static class Solution9 {
+        public boolean isPalindrome(int x) {
+            if (x < 0) return false;
+            boolean flag = false;
+            int res = 0;
+            int source = x;
+            while (x != 0) {
+                res = res * 10 + x % 10;
+                x = x / 10;
+            }
+            if (res == source)
+                flag = true;
+            return flag;
+        }
+    }
+
     public static void main(String[] args) {
-        Solution6 s = new Solution6();
-        System.out.println(s.convert("AB", 1));
+        Solution9 s = new Solution9();
+        System.out.println(s.isPalindrome(-121));
     }
 }
