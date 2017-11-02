@@ -338,8 +338,52 @@ public class leetcode {
         }
     }
 
+    //problem 13
+    //Roman to Integer
+    static class Solution13 {
+        public int romanToInt(String s) {
+            if (s == null || s.length() == 0)
+                return -1;
+            HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+            map.put('I', 1);
+            map.put('V', 5);
+            map.put('X', 10);
+            map.put('L', 50);
+            map.put('C', 100);
+            map.put('D', 500);
+            map.put('M', 1000);
+            int length = s.length(), result = map.get(s.charAt(length - 1));
+            for (int i = length - 2; i >= 0; i--) {
+                if (map.get(s.charAt(i)) >= map.get(s.charAt(i + 1))) {
+                    result += map.get(s.charAt(i));
+                } else {
+                    result -= map.get(s.charAt(i));
+                }
+            }
+            return result;
+        }
+    }
+
+    //problem 14
+    // Longest Common Prefix
+    static class Solution14 {
+        public String longestCommonPrefix(String[] strs) {
+            if (strs == null) return "";
+            String prefix = strs[0];
+            for (int i = 1; i < strs.length; i++) {
+                while (strs[i].indexOf(prefix) != 0) {
+                    prefix = prefix.substring(0, prefix.length() - 1);
+                    if (prefix.isEmpty()) return "";
+                }
+            }
+            return prefix;
+        }
+    }
+
     public static void main(String[] args) {
-        Solution9 s = new Solution9();
-        System.out.println(s.isPalindrome(-121));
+        Solution14 s = new Solution14();
+        System.out.println(s.longestCommonPrefix(new String[]{"aa", "ab"}));
+        String a = "abc", b = "abcde";
+        System.out.println(b.indexOf("g"));
     }
 }
