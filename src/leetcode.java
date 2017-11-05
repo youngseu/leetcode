@@ -42,7 +42,7 @@ public class leetcode {
     /**
      * Definition for singly-linked list.
      */
-    public class ListNode {
+    static public class ListNode {
         int val;
         ListNode next;
 
@@ -496,8 +496,107 @@ public class leetcode {
         }
     }
 
+    //problem 18
+    //4 sum
+    static class Solution18 {
+        public List<List<Integer>> fourSum(int[] nums, int target) {
+            List<List<Integer>> res = new ArrayList<>();
+            if (nums.length == 0) return res;
+            for (int i = 0; i < nums.length; i++) {
+
+            }
+
+            return res;
+        }
+    }
+
+    //problem 19
+    //Remove Nth Node From End of List
+    //O(N)
+    static class Solution19 {
+        public ListNode removeNthFromEnd(ListNode head, int n) {
+            ListNode res = head, pren = head, curn = head;
+            int cur = 1;
+            if (head == null) return head;
+            while (head != null) {
+                if (cur <= n) {
+                    head = head.next;
+                    cur++;
+                } else if (cur == n + 1) {
+                    curn = curn.next;
+                    head = head.next;
+                    cur++;
+                } else {
+                    pren = pren.next;
+                    curn = curn.next;
+                    head = head.next;
+                    cur++;
+                }
+            }
+            if (cur - 1 == n) {
+                return res.next;
+            } else {
+                pren.next = curn.next;
+            }
+            return res;
+        }
+
+        //more simple
+        public ListNode removeNthFromEnd1(ListNode head, int n) {
+
+            ListNode start = new ListNode(0);
+            ListNode slow = start, fast = start;
+            slow.next = head;
+
+            //Move fast in front so that the gap between slow and fast becomes n
+            for (int i = 1; i <= n + 1; i++) {
+                fast = fast.next;
+            }
+            //Move fast to the end, maintaining the gap
+            while (fast != null) {
+                slow = slow.next;
+                fast = fast.next;
+            }
+            //Skip the desired node
+            slow.next = slow.next.next;
+            return start.next;
+        }
+    }
+
+    //problem 20
+    //Valid Parentheses
+    //use stack to validate
+    static class Solution20 {
+        public boolean isValid(String s) {
+            Stack<Character> stack = new Stack<Character>();
+            for (char a : s.toCharArray()) {
+                if (a == '{')
+                    stack.push('}');
+                else if (a == '(')
+                    stack.push(')');
+                else if (a == '[')
+                    stack.push(']');
+                else if (stack.isEmpty() || stack.pop() != a)
+                    return false;
+            }
+            return stack.isEmpty();
+        }
+
+        //use num map char
+        public boolean isValid1(String s) {
+            Stack<Integer> p = new Stack<>();
+            for (int i = 0; i < s.length(); i++) {
+                int q = "(){}[]".indexOf(s.substring(i, i + 1));
+                if (q % 2 == 1) {
+                    if (p.isEmpty() || p.pop() != q - 1) return false;
+                } else p.push(q);
+            }
+            return p.isEmpty();
+        }
+    }
+
     public static void main(String[] args) {
-        Solution17 s = new Solution17();
-        System.out.println(s.letterCombinations("123"));
+        Solution20 s = new Solution20();
+        System.out.println(s.isValid("([])"));
     }
 }
