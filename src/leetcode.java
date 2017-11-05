@@ -367,6 +367,7 @@ public class leetcode {
     //problem 14
     // Longest Common Prefix
     static class Solution14 {
+        // #1 (Horizontal scanning)
         public String longestCommonPrefix(String[] strs) {
             if (strs == null) return "";
             String prefix = strs[0];
@@ -378,12 +379,125 @@ public class leetcode {
             }
             return prefix;
         }
+
+        // #2 (Vertical scanning)
+        public String longestCommonPrefix2(String[] strs) {
+            if (strs == null || strs.length == 0) return "";
+            for (int i = 0; i < strs[0].length(); i++) {
+                char c = strs[0].charAt(i);
+                for (int j = 1; j < strs.length; j++) {
+                    if (i == strs[j].length() || strs[j].charAt(i) != c)
+                        return strs[0].substring(0, i);
+                }
+            }
+            return strs[0];
+        }
+
+        // #3 (Divide and conquer)
+        public String longestCommonPrefix3(String[] strs) {
+            if (strs == null || strs.length == 0) return "";
+            return longestCommonPrefix(strs, 0, strs.length - 1);
+        }
+
+        private String longestCommonPrefix(String[] strs, int l, int r) {
+            if (l == r) {
+                return strs[l];
+            } else {
+                int mid = (l + r) / 2;
+                String lcpLeft = longestCommonPrefix(strs, l, mid);
+                String lcpRight = longestCommonPrefix(strs, mid + 1, r);
+                return commonPrefix(lcpLeft, lcpRight);
+            }
+        }
+
+        String commonPrefix(String left, String right) {
+            int min = Math.min(left.length(), right.length());
+            for (int i = 0; i < min; i++) {
+                if (left.charAt(i) != right.charAt(i))
+                    return left.substring(0, i);
+            }
+            return left.substring(0, min);
+        }
+    }
+
+    //problem 15
+    //3 sum
+    static class Solution15 {
+        public List<List<Integer>> threeSum(int[] nums) {
+            List<List<Integer>> res = new ArrayList<>();
+            if (nums == null || nums.length == 0) return res;
+            Arrays.sort(nums);
+            for (int i = 0; i < nums.length; i++) {
+                if (i - 1 >= 0 && nums[i] == nums[i - 1]) continue; //avoid duplicates
+                int left = i + 1, right = nums.length - 1;
+                while (left < right) {
+                    int sum = nums[i] + nums[left] + nums[right];
+                    if (sum == 0) {
+                        res.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                        while (left + 1 < right && nums[left] == nums[left + 1]) {//avoid duplicates
+                            left++;
+                        }
+                        while (right - 1 > left && nums[right] == nums[right - 1]) {//avoid duplicates
+                            right--;
+                        }
+                        left++;
+                        right--;
+                    } else if (sum < 0) {
+                        left++;
+                    } else {
+                        right--;
+                    }
+                }
+            }
+            return res;
+        }
+    }
+
+    //problem 16
+    //3 sum close
+    static class Solution16 {
+        public int threeSumClosest(int[] nums, int target) {
+            int res = nums[0] + nums[1] + nums[nums.length - 1];
+            for (int i = 0; i < nums.length - 2; i++) {
+                int left = i + 1, right = nums.length - 1;
+                while (left < right) {
+                    int sum = nums[i] + nums[left] + nums[right];
+                    if (sum > target) {
+                        right--;
+                    } else {
+                        left++;
+                    }
+                    if (Math.abs(sum - target) < Math.abs(res - target))
+                        res = sum;
+                }
+            }
+            return res;
+        }
+    }
+
+    //problem 17
+    //Letter Combinations of a Phone Number
+    static class Solution17 {
+        //fifo queue
+        public List<String> letterCombinations(String digits) {
+            LinkedList<String> ll = new LinkedList<>();
+            if (digits.length() == 0) return ll;
+            String[] mapping = new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+            ll.add("");
+            for (int i = 0; i < digits.length(); i++) {
+                int x = Character.getNumericValue(digits.charAt(i));
+                while (ll.peek().length() == i) {
+                    String t = ll.remove();
+                    for (char s : mapping[x].toCharArray())
+                        ll.add(t + s);
+                }
+            }
+            return ll;
+        }
     }
 
     public static void main(String[] args) {
-        Solution14 s = new Solution14();
-        System.out.println(s.longestCommonPrefix(new String[]{"aa", "ab"}));
-        String a = "abc", b = "abcde";
-        System.out.println(b.indexOf("g"));
+        Solution17 s = new Solution17();
+        System.out.println(s.letterCombinations("123"));
     }
 }
