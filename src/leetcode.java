@@ -708,38 +708,128 @@ public class leetcode {
             return dummy.next;
         }
 
-        //problem 24
-        //Swap Nodes in Pairs
-        static class Solution24 {
-            //recursion
-            public ListNode swapPairs(ListNode head) {
-                if (head == null || head.next == null) return head;
-                ListNode n = head.next;
-                head.next = swapPairs(head.next.next);
-                n.next = head;
-                return n;
-            }
 
-            //iteration
-            public ListNode swapPairs1(ListNode head) {
-                ListNode dummy = new ListNode(0);
-                dummy.next = head;
-                ListNode current = dummy;
-                while (current.next != null && current.next.next != null) {
-                    ListNode first = current.next;
-                    ListNode second = current.next.next;
-                    first.next = second.next;
-                    current.next = second;
-                    current.next.next = first;
-                    current = current.next.next;
+    }
+
+    //problem 24
+    //Swap Nodes in Pairs
+    static class Solution24 {
+        //recursion
+        public ListNode swapPairs(ListNode head) {
+            if (head == null || head.next == null) return head;
+            ListNode n = head.next;
+            head.next = swapPairs(head.next.next);
+            n.next = head;
+            return n;
+        }
+
+        //iteration
+        public ListNode swapPairs1(ListNode head) {
+            ListNode dummy = new ListNode(0);
+            dummy.next = head;
+            ListNode current = dummy;
+            while (current.next != null && current.next.next != null) {
+                ListNode first = current.next;
+                ListNode second = current.next.next;
+                first.next = second.next;
+                current.next = second;
+                current.next.next = first;
+                current = current.next.next;
+            }
+            return dummy.next;
+        }
+    }
+
+    //problem 25
+    //Reverse Nodes in k-Group
+    class Solution25 {
+        public ListNode reverseKGroup(ListNode head, int k) {
+            ListNode curr = head;
+            int count = 0;
+            while (curr != null && count != k) {//find the k+1 node
+                curr = curr.next;
+                count++;
+            }
+            if (count == k) {
+                curr = reverseKGroup(curr, k);//reverse list with k+1 node as head
+                // head - head-pointer to direct part,
+                // curr - head-pointer to reversed part;
+                while (count-- > 0) {
+                    ListNode tmp = head.next;
+                    head.next = curr;
+                    curr = head;
+                    head = tmp;
                 }
-                return dummy.next;
+                head = curr;
+            }
+            return head;
+        }
+    }
+
+    //problem 26
+    //Remove Duplicates from Sorted Array
+    class Solution26 {
+        public int removeDuplicates(int[] nums) {
+            if (nums.length == 0) return 0;
+            int i = 0;
+            for (int j = 1; j < nums.length; j++) {
+                if (nums[j] != nums[i]) {
+                    i++;
+                    nums[i] = nums[j];
+                }
+            }
+            return i + 1;
+        }
+    }
+
+    //problem 28
+    //Implement strStr()
+    static class Solution28 {
+        //需要考虑输入的多种情况,me
+        public int strStr(String haystack, String needle) {
+            int res = -1;
+            if (haystack.length() < needle.length())
+                return res;
+            if (needle.length() == 0)
+                return 0;
+            for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+                int tmp = i;
+                for (int j = 0; j < needle.length(); j++) {
+                    if (haystack.charAt(tmp) == needle.charAt(j) && j == needle.length() - 1)
+                        return i;
+                    else if (haystack.charAt(tmp) == needle.charAt(j))
+                        tmp++;
+                    else
+                        break;
+                }
+            }
+            return res;
+        }
+
+        //other
+        public int strStrRe(String haystack, String needle) {
+            for (int i = 0; ; i++) {
+                for (int j = 0; ; j++) {
+                    if (j == needle.length()) return i;
+                    if (i + j == haystack.length()) return -1;
+                    if (needle.charAt(j) != haystack.charAt(i + j)) break;
+                }
             }
         }
     }
 
+    //problem 30
+    //Substring with Concatenation of All Words
+    class Solution30 {
+        public List<Integer> findSubstring(String s, String[] words) {
+
+        }
+    }
+
+
+
     public static void main(String[] args) {
-        Solution22 s = new Solution22();
-        System.out.println(s.generateParenthesis(4));
+        Solution28 s = new Solution28();
+        System.out.println(s.strStr("hello", "ll"));
     }
 }
