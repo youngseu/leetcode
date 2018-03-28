@@ -1,3 +1,5 @@
+package Top;
+
 import java.util.*;
 
 /**
@@ -213,6 +215,7 @@ public class leetcode {
                 for (int j = 0; j <= i; j++) {
                     if (str.charAt(i) == str.charAt(j) && (i - j <= 2 || a[j + 1][i - 1]))
                         a[j][i] = true;
+                    //寻找最大长度
                     if (a[j][i] && i - j + 1 > l) {
                         l = i - j + 1;
                         start = j;
@@ -493,6 +496,25 @@ public class leetcode {
                 }
             }
             return ll;
+        }
+
+        //recursive
+        static final String[] mapping = new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+        public List<String> letterCombinations1(String digits) {
+            LinkedList<String> ll = new LinkedList<>();
+            combination("", digits, 0, ll);
+            return ll;
+        }
+
+        void combination(String prefix, String digits, int offset, LinkedList<String> ll) {
+            if (offset >= digits.length()) {
+                ll.add(prefix);
+                return;
+            }
+            for (char c : mapping[Character.getNumericValue(digits.charAt(offset))].toCharArray()) {
+                combination(prefix + c, digits, offset + 1, ll);
+            }
         }
     }
 
@@ -820,16 +842,39 @@ public class leetcode {
 
     //problem 30
     //Substring with Concatenation of All Words
-    class Solution30 {
+    static class Solution30 {
+        //超时
         public List<Integer> findSubstring(String s, String[] words) {
-
+            List<Integer> res = new ArrayList<>();
+            if (s == null || words == null) return res;
+            final Map<String, Integer> count = new HashMap<>();
+            //单词计数
+            for (String word : words) {
+                count.put(word, count.getOrDefault(word, 0) + 1);
+            }
+            int n = s.length(), len = words[0].length(), num = words.length;
+            for (int i = 0; i <= n - len * num; i++) {
+                Map<String, Integer> copy = new HashMap<String, Integer>(count);
+                for (int j = 0; j < num; j++) {
+                    String str = s.substring(i + j * len, i + j * len + len);
+                    if (copy.containsKey(str)) {
+                        int c = copy.get(str);
+                        if (c == 1) copy.remove(str);
+                        else copy.put(str, c - 1);
+                        if (copy.isEmpty()) {
+                            res.add(i);
+                            break;
+                        }
+                    } else break;
+                }
+            }
+            return res;
         }
     }
 
 
-
     public static void main(String[] args) {
-        Solution28 s = new Solution28();
-        System.out.println(s.strStr("hello", "ll"));
+        Solution30 s = new Solution30();
+        System.out.println(s.findSubstring("wordgoodgoodgoodbestword", new String[]{"word", "good", "best", "good"}));
     }
 }
