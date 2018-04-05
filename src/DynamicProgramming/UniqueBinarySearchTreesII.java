@@ -1,5 +1,7 @@
 package DynamicProgramming;
 
+import Base.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,17 +11,6 @@ import java.util.List;
 // combine the result from left side and right side.
 // Note for the right side we have to clone the nodes as the value will be offsetted by j.
 public class UniqueBinarySearchTreesII {
-
-    //Definition for a binary tree node.
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public static List<TreeNode> generateTrees(int n) {
         ArrayList<TreeNode>[] dp = new ArrayList[n + 1];
@@ -56,20 +47,20 @@ public class UniqueBinarySearchTreesII {
     }
 }
 //    错误使用二维动态数组保存节点组合
-//    public static List<TreeNode> generateTrees(int n) {
-//        ArrayList<ArrayList<TreeNode>> dp = new ArrayList<ArrayList<TreeNode>>();
-//        ArrayList<TreeNode> t = new ArrayList<>();
-//        t.add(new TreeNode(-1));
+//    public static List<Base.TreeNode> generateTrees(int n) {
+//        ArrayList<ArrayList<Base.TreeNode>> dp = new ArrayList<ArrayList<Base.TreeNode>>();
+//        ArrayList<Base.TreeNode> t = new ArrayList<>();
+//        t.add(new Base.TreeNode(-1));
 //        dp.add(t);
-//        ArrayList<TreeNode> p = new ArrayList<>();
-//        p.add(new TreeNode(1));
+//        ArrayList<Base.TreeNode> p = new ArrayList<>();
+//        p.add(new Base.TreeNode(1));
 //        dp.add(p);
 //        for (int i = 2; i < n + 1; i++) {
-//            ArrayList<TreeNode> i_dp = new ArrayList<>();
+//            ArrayList<Base.TreeNode> i_dp = new ArrayList<>();
 //            for (int j = 0; j < i; j++) {
-//                TreeNode tmp = new TreeNode(j+1);
-//                for (TreeNode l : dp.get(j)) {
-//                    for (TreeNode r : dp.get(i - j - 1)) {
+//                Base.TreeNode tmp = new Base.TreeNode(j+1);
+//                for (Base.TreeNode l : dp.get(j)) {
+//                    for (Base.TreeNode r : dp.get(i - j - 1)) {
 //
 //                        if (l.val == -1)
 //                            tmp.left = null;
