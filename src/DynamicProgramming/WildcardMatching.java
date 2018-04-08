@@ -20,6 +20,14 @@ import com.sun.org.apache.bcel.internal.generic.RET;
 //isMatch("aa", "a*") → true
 //isMatch("ab", "?*") → true
 //isMatch("aab", "c*a*b") → false
+//Below is another 2D dp solution. Ideal is identical.
+//
+//dp[i][j] denotes whether s[0…i-1] matches p[0…j-1],
+//
+//First, we need to initialize dp[i][0], i= [1,m]. All the dp[i][0] should be false because p has nothing in it.
+//
+//Then, initialize dp[0][j], j = [1, n]. In this case, s has nothing, to get dp[0][j] = true, p must be
+// ‘*’, ‘**’, ‘***’,etc. Once p.charAt(j-1) != ‘*’, all the dp[0][j] afterwards will be false.
 public class WildcardMatching {
     public boolean isMatch(String s, String p) {
         int m = s.length(), n = p.length();
