@@ -52,6 +52,7 @@ public class DifferentWaystoAddParentheses {
                 }
             }
         }
+        //一个数
         if (res.size() == 0) {
             res.add(Integer.parseInt(input.substring(start, end)));
         }
