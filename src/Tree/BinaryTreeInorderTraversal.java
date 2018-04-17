@@ -11,17 +11,30 @@ import java.util.Stack;
 //Given a binary tree, return the inorder traversal of its nodes' values.
 //Recursive solution is trivial, could you do it iteratively
 public class BinaryTreeInorderTraversal {
+    //iteration
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (true) {
-            TreeNode node = stack.peek();
-            if (node.left != null)
-                stack.push(root.left);
-            else if (node.right != null) {
-                stack.push(node.right);
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.add(cur);
+                cur = cur.left;
             }
+            cur = stack.pop();
+            res.add(cur.val);
+            cur = cur.right;
         }
+        return res;
+    }
+
+    //recursive
+    public void helper(TreeNode root, List<Integer> list) {
+        if(root == null) {
+            return;
+        }
+        helper(root.left, list);
+        list.add(root.val);
+        helper(root.right, list);
     }
 }
