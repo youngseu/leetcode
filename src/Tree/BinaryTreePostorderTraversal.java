@@ -2,8 +2,7 @@ package Tree;
 
 import Base.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 //145 problem
 //Binary Tree Postorder Traversal
@@ -11,7 +10,16 @@ import java.util.List;
 //Recursive solution is trivial, could you do it iteratively?
 public class BinaryTreePostorderTraversal {
     public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
+        LinkedList<Integer> res = new LinkedList<>();
+        if (root == null) return res;
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        deque.push(root);
+        while (!deque.isEmpty()) {
+            root = deque.pop();
+            res.addFirst(root.val);
+            if (root.left != null) deque.push(root.left);
+            if (root.right != null) deque.push(root.right);
+        }
         return res;
     }
 }
