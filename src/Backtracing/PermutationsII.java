@@ -28,6 +28,7 @@ public class PermutationsII {
             res.add(new ArrayList<Integer>(list));
         } else {
             for (int i = 0; i < nums.length; i++) {
+                //避免相邻两个相同的数，后面的数先选，再选前面的数，导致相同结果
                 if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
                 used[i] = true;
                 list.add(nums[i]);
