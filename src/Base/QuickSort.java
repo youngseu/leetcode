@@ -1,6 +1,8 @@
 package Base;
 
+import java.util.Arrays;
 
+//O(nlogn)
 public class QuickSort {
     public static int partition(int[] array, int lo, int hi) {
         int key = array[lo];
@@ -32,6 +34,6 @@ public class QuickSort {
         int[] array = new int[]{49, 38, 65, 97, 76, 13, 27, 49};
         System.out.println(partition(array, 0, array.length - 1));
         quicksort(array, 0, array.length - 1);
-        System.out.println(array);
+        System.out.println(Arrays.toString(array));
     }
 }

@@ -28,9 +28,9 @@ public class PathSum {
             if (subsum == 0 && root.right == null && root.left == null)
                 return true;
             if (root.right != null)
-                ans = ans || hasPathSum(root.right, subsum);
+                ans = ans || hasPathSum2(root.right, subsum);
             if (root.left != null)
-                ans = ans || hasPathSum(root.left, subsum);
+                ans = ans || hasPathSum2(root.left, subsum);
             return ans;
         }
     }
