@@ -33,7 +33,7 @@ public class CombinationSum {
         else if (target == 0) {
             res.add(new ArrayList<>(list));
         } else {
-            //增加序，保证不出现重复元素
+            //can exist the same number
             for (int i = start; i < candidates.length; i++) {
                 list.add(candidates[i]);
                 backtracing(candidates, target - candidates[i], list, res, i);

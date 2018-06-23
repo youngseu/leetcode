@@ -1,6 +1,9 @@
 package DynamicProgramming;
 //198 problem
 //House Robber
+//It will automatically contact the police if two adjacent houses were broken into on the same night.
+//Given a list of non-negative integers representing the amount of money of each house, determine the
+//maximum amount of money you can rob tonight without alerting the police.
 public class HouseRobber {
     public int rob(int[] nums) {
         if (nums.length == 0) return 0;

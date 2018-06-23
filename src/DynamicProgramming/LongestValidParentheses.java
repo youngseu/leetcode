@@ -13,6 +13,7 @@ public class LongestValidParentheses {
         int maxlen = 0;
         int dp[] = new int[s.length()];
         for (int i = 1; i < s.length(); i++) {
+            //judge index wheathe out of range
             if (s.charAt(i) == ')') {
                 if (s.charAt(i - 1) == '(') {
                     dp[i] = (i >= 2 ? dp[i - 2] : 0) + 2;
