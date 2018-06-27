@@ -2,6 +2,8 @@ package Top;
 
 import java.util.*;
 
+import Base.ListNode;
+
 /**
  * Created by yang on 17-10-16.
  */
@@ -40,19 +42,6 @@ public class leetcode {
 
     //2 problem
     //Add Two Numbers
-
-    /**
-     * Definition for singly-linked list.
-     */
-    static public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     class Solution2 {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             ListNode ln = new ListNode(0);
@@ -789,7 +778,7 @@ public class leetcode {
     }
 
     //problem 26
-    //Remove Duplicates from Sorted Array
+    //Remove Duplicates from Sorted ArrayorList
     class Solution26 {
         public int removeDuplicates(int[] nums) {
             if (nums.length == 0) return 0;
