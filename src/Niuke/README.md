@@ -7,13 +7,13 @@ DivideField: dp greedy
 
 LuckyBag: dfs backtrace and trim
 
-MixedColor, NotTwo: math
+MixedColor, NotTwo, Fibonacci, LargestOddDivisor: math
 
 RestoreArray: divide-conquer and permutation
 
 LikeWord: regular expression
 
-Palindrome：backtrace
+Palindrome, Dungeon：backtrace
 
-Dungeon: backtrace
+TwoSorts: lexicographical order
 
