@@ -53,7 +53,7 @@ public class TwoThread {
                 if (number.flag) {
                     try {
                         LOCK.lock();
-                        System.out.println(Thread.currentThread().getName() + "+-+" + number.start);
+                        System.out.println(Thread.currentThread().getName() + ": " + number.start);
                         number.start++;
                         number.flag = false;
 
@@ -91,7 +91,7 @@ public class TwoThread {
                 if (!number.flag) {
                     try {
                         LOCK.lock();
-                        System.out.println(Thread.currentThread().getName() + "+-+" + number.start);
+                        System.out.println(Thread.currentThread().getName() + ": " + number.start);
                         number.start++;
                         number.flag = true;
 
