@@ -41,7 +41,7 @@ public class TwoThreadWaitNotify {
                 synchronized (TwoThreadWaitNotify.class) {
                     System.out.println("偶数线程抢到锁了");
                     if (number.flag) {
-                        System.out.println(Thread.currentThread().getName() + "+-+偶数" + number.start);
+                        System.out.println(Thread.currentThread().getName() + "偶数: " + number.start);
                         number.start++;
 
                         number.flag = false;
@@ -77,7 +77,7 @@ public class TwoThreadWaitNotify {
                 synchronized (TwoThreadWaitNotify.class) {
                     System.out.println("奇数线程抢到锁了");
                     if (!number.flag) {
-                        System.out.println(Thread.currentThread().getName() + "+-+奇数" + number.start);
+                        System.out.println(Thread.currentThread().getName() + "奇数: " + number.start);
                         number.start++;
 
                         number.flag = true;

@@ -37,12 +37,7 @@ public class Restaurant {
 
         //sort
         Arrays.sort(table);
-        Arrays.sort(person, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o2[1] - o1[1];
-            }
-        });
+        Arrays.sort(person, (o1, o2) -> o2[1] - o1[1]);
 
 
         long sum = 0;
