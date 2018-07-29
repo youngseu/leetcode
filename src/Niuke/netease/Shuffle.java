@@ -59,7 +59,7 @@ public class Shuffle {
 // * 根据当前数的位置，可以算出经过一次洗牌后的位置
 // * 如果当前数小于等于n（即在左手），则他下次出现的位置是 2*当前位置-1
 // * 如果当前位置大于n（即在右手）,则他下次出现的位置是 2*（当前位置 - n）
-//    public class Main {
+//    public class IncAndDecQueue {
 //        public static void main(String[] args) {
 //            Scanner sc = new Scanner(System.in);
 //            int groups = sc.nextInt();
