@@ -3,6 +3,7 @@ package Niuke.netease;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+
 //数串游戏
 //题目描述
 //小易邀请你玩一个数字游戏，小易给你一系列的整数。你们俩使用这些整数玩游戏。每次小易会任意说一个数字出来，然后你需要从这
@@ -41,12 +42,18 @@ public class NumGame {
             numarray[i] = Integer.parseInt(arraystr[i]);
         }
         Arrays.sort(numarray);
-        backtrace(numarray, 0, flag, 0);
-        for (int i = 1; i < num * 100000; i++) {
-            if (flag[i] == 0) {
-                System.out.println(i);
-                break;
-            }
+//        backtrace(numarray, 0, flag, 0);
+//        for (int i = 1; i < num * 100000; i++) {
+//            if (flag[i] == 0) {
+//                System.out.println(i);
+//                break;
+//            }
+//        }
+        int miss = 0;
+        for (int i = 0; i < num; i++) {
+            if (numarray[i] > miss + 1) break;
+            miss += numarray[i];
         }
+        System.out.println(miss + 1);
     }
 }

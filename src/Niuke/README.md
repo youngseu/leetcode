@@ -1,23 +1,37 @@
 # Niuke code
+### dp
 BuyApple, JumpStone: dp of skip
 
 Choir: dp of multiple max and min
 
-DivideField: dp greedy
+DivideField: dp and greedy
 
+TargetSumNum: dp
+
+DarkNum：dp, analysis the pattern
+
+### backtrace
 LuckyBag: dfs backtrace and trim
-
-MixedColor, NotTwo, Fibonacci, LargestOddDivisor: math
-
-RestoreArray: divide-conquer and permutation
-
-LikeWord: regular expression
 
 Palindrome, Dungeon：backtrace
 
-TwoSorts: lexicographical order
+RestoreArray: divide-conquer and permutation
 
+### greedy
 SaveMaxNum: greedy
 
-BigIntegerAdd, LostThree: BigInteger
+Restaurant: greedy
 
+### math
+MixedColor, NotTwo, Fibonacci, LargestOddDivisor, NumGame: math
+
+### other
+BigIntegerAdd, LostThree, RadixChange: BigInteger
+
+LikeWord: regular expression
+
+TwoSorts: lexicographical order
+
+CountPalindrome: StringBuilder can reverse and insert(int, String)
+
+ConstructQueue: regulation
