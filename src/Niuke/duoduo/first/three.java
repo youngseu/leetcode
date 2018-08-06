@@ -1,4 +1,4 @@
-package Niuke.duoduo;
+package Niuke.duoduo.first;
 
 import java.util.*;
 //有N个货车（0<=N<=1024），每个货物的重量是w（100<=w<=300），如果每辆车最多的载重为300，请问最少需要多少辆车才能

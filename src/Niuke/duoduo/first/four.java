@@ -1,4 +1,4 @@
-package Niuke.duoduo;
+package Niuke.duoduo.first;
 
 import java.util.*;
 //A国的手机号由且仅由N位十进制数字（0-9）组成，一个手机号码中至少K位数字相同则被定义为靓号，A国的手机号可以有

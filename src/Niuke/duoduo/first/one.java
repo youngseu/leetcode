@@ -1,4 +1,4 @@
-package Niuke.duoduo;
+package Niuke.duoduo.first;
 
 import java.util.Scanner;
 //喝可乐
