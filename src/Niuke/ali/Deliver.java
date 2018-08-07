@@ -21,7 +21,8 @@ class MyPoint {
 
 }
 
-public class Main {
+//物流配送
+public class Deliver {
     static MyPoint startpoint = new MyPoint(0, 0);
     static int minpath = Integer.MAX_VALUE;
 

@@ -10,6 +10,8 @@ TargetSumNum: dp
 
 DarkNum：dp, analysis the pattern
 
+TargetCoin: dp
+
 ### backtrace
 LuckyBag: dfs backtrace and trim
 
@@ -26,7 +28,7 @@ Restaurant: greedy
 MixedColor, NotTwo, Fibonacci, LargestOddDivisor, NumGame: math
 
 ### other
-BigIntegerAdd, LostThree, RadixChange: BigInteger
+BigIntegerAdd, LostThree, RadixChange, Radix: BigInteger
 
 LikeWord: regular expression
 
@@ -35,3 +37,5 @@ TwoSorts: lexicographical order
 CountPalindrome: StringBuilder can reverse and insert(int, String)
 
 ConstructQueue: regulation
+
+RandomNum: TreeSet

@@ -2,6 +2,7 @@ package Niuke.ali;
 
 import java.util.*;
 
+//the same as leetcode candy
 public class IncAndDecQueue {
 
     public static int sticker(int[] score) {
