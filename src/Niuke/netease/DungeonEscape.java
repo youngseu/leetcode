@@ -39,7 +39,7 @@ public class DungeonEscape {
         int col = sc.nextInt();
         //the map
         char[][] points = new char[row][col];
-        //count step's num
+        //count step's length
         int[][] count = new int[row][col];
         for (int i = 0; i < row; i++) {
             String str = sc.nextLine();

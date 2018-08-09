@@ -6,11 +6,11 @@ Choir: dp of multiple max and min
 
 DivideField: dp and greedy
 
-TargetSumNum: dp
+TargetSumNumDP: dp
 
 DarkNum：dp, analysis the pattern
 
-TargetCoin: dp
+TargetCoin: dp, given table
 
 ### backtrace
 LuckyBag: dfs backtrace and trim
@@ -36,6 +36,6 @@ TwoSorts: lexicographical order
 
 CountPalindrome: StringBuilder can reverse and insert(int, String)
 
-ConstructQueue: regulation
+ConstructQueue, HungryYi, DarkNum: regulation
 
 RandomNum: TreeSet

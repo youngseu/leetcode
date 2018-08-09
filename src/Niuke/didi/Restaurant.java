@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class Restaurant {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();//table num
+        int n = sc.nextInt();//table length
         int m = sc.nextInt();//batch
 
         int[] table = new int[n];

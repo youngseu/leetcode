@@ -22,7 +22,7 @@ public class KangarooJumpRiver {
         int num = scanner.nextInt();
         //every jump length
         int[] jump = new int[num];
-        //min num of jump
+        //min length of jump
         int[] count = new int[num];
         count[0] = 1;
         for (int i = 0; i < num; i++) {

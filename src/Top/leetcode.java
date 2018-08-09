@@ -18,7 +18,7 @@ public class leetcode {
             }
             for (int i = 0; i < nums.length; i++) {
                 int complement = target - nums[i];
-                // not the num twice
+                // not the length twice
                 if (map.containsKey(complement) && map.get(complement) != i) {
                     return new int[]{i, map.get(complement)};
                 }
@@ -593,7 +593,7 @@ public class leetcode {
             return stack.isEmpty();
         }
 
-        //use num map char
+        //use length map char
         public boolean isValid1(String s) {
             Stack<Integer> p = new Stack<>();
             for (int i = 0; i < s.length(); i++) {
@@ -695,7 +695,7 @@ public class leetcode {
         }
 
         //Optimize Approach 2 by Priority Queue
-        //priority queue to find the small num
+        //priority queue to find the small length
         public ListNode mergeKLists2(ListNode[] lists) {
             if (lists == null || lists.length == 0) return null;
             PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.length,

@@ -39,7 +39,7 @@ public class Time {
                 break;
             }
         }
-        if (max_time.charAt(0) - '0' == 2) {//num[0] =2
+        if (max_time.charAt(0) - '0' == 2) {//length[0] =2
             for (int i = 3; i >= 0; i--) {
                 if (array.contains(i)) {
                     max_time.append(i);
@@ -47,7 +47,7 @@ public class Time {
                     break;
                 }
             }
-        } else if (max_time.charAt(0) - '0' <= 1) {//num[0]<=1
+        } else if (max_time.charAt(0) - '0' <= 1) {//length[0]<=1
             for (int i = 9; i >= 0; i--) {
                 if (array.contains(i)) {
                     max_time.append(i);
@@ -61,7 +61,7 @@ public class Time {
             return;
         }
 
-        //num[3~5]
+        //length[3~5]
         for (int i = 5; i >= 0; i--) {
             if (array.contains(i)) {
                 max_time.append(i);

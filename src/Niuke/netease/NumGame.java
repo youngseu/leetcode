@@ -43,7 +43,7 @@ public class NumGame {
         }
         Arrays.sort(numarray);
 //        backtrace(numarray, 0, flag, 0);
-//        for (int i = 1; i < num * 100000; i++) {
+//        for (int i = 1; i < length * 100000; i++) {
 //            if (flag[i] == 0) {
 //                System.out.println(i);
 //                break;

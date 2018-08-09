@@ -10,7 +10,7 @@ package DynamicProgramming;
 public class RangeSumQuery {
     private int[] sum;
 
-    // sum[0] = 0;sum[i] is sum of num[0~i-1]
+    // sum[0] = 0;sum[i] is sum of length[0~i-1]
     public RangeSumQuery(int[] nums) {
         sum = new int[nums.length + 1];
         for (int i = 0; i < nums.length; i++) {

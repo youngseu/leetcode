@@ -17,7 +17,8 @@ import java.util.Scanner;
 //2
 public class TragetCoin {
     public static int sum = 0;
-    public static int[] arrays = {1, 5, 10, 20, 50, 100};
+    public static int[] table = {1, 5, 10, 20, 50, 100};//无限硬币
+//    public static int[] table = {5, 5, 10, 2, 3};//有限硬币
 
     //out of time
     public static void backtracing(int target, int start, int[] arrays) {
@@ -30,12 +31,13 @@ public class TragetCoin {
         }
     }
 
+    //dp[j]的值是面额为j的组合个数
     public static long dp(int target) {
         long[] dp = new long[target + 1];
         dp[0] = 1;
-        for (int i = 0; i < arrays.length; i++) {
-            for (int j = arrays[i]; j < dp.length; j++) {
-                dp[j] += dp[j - arrays[i]];
+        for (int i = 0; i < table.length; i++) {
+            for (int j = table[i]; j < dp.length; j++) {
+                dp[j] += dp[j - table[i]];
             }
         }
         return dp[target];
@@ -44,7 +46,7 @@ public class TragetCoin {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
-//        backtracing(num, 0, arrays);
+//        backtracing(length, 0, table);
 //        System.out.println(sum);
         System.out.println(dp(num));
     }

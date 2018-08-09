@@ -18,12 +18,13 @@ import java.util.Scanner;
 //输出
 //4
 public class TargetSumNumDP {
-    public static int num;
+    public static int length;
 
+    //dp[i][j]代表考虑i个数和为j的情况个数
     public static long dp(int[] array, int sum) {
-        long dp[][] = new long[num + 1][sum + 1];
+        long dp[][] = new long[length + 1][sum + 1];
         dp[0][0] = 1;
-        for (int i = 1; i <= num; i++) {
+        for (int i = 1; i <= length; i++) {
             for (int j = 0; j <= sum; j++) {
                 if (j >= array[i])
                     dp[i][j] = dp[i - 1][j - array[i]] + dp[i - 1][j];
@@ -31,18 +32,46 @@ public class TargetSumNumDP {
                     dp[i][j] = dp[i - 1][j];
             }
         }
-        return dp[num][sum];
+        return dp[length][sum];
+    }
+
+    //error
+    public static long dp2(int[] array, int sum) {
+        long dp[] = new long[sum + 1];
+        dp[0] = 1;
+        for (int i = 1; i <= length; i++) {
+            for (int j = 0; j <= sum; j++) {
+                if (j >= array[i])
+                    dp[j] += dp[j - array[i]];
+            }
+        }
+        return dp[sum];
+    }
+
+    //error
+    public static long mydp(int[] array, int sum) {
+        long[] dp = new long[sum + 1];
+        for (int i = 1; i <= length; i++) {
+            for (int j = 0; j < sum + 1; j++) {
+                if (j + array[i] > sum) break;
+                else if (dp[j] != 0) dp[j + array[i]]++;
+                else if (j == array[i]) dp[j]++;
+            }
+        }
+        return dp[sum];
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        num = sc.nextInt();
-        int[] array = new int[num + 1];
+        length = sc.nextInt();
+        int[] array = new int[length + 1];
 
         int sum = sc.nextInt();
-        for (int i = 1; i <= num; i++) {
+        for (int i = 1; i <= length; i++) {
             array[i] = sc.nextInt();
         }
         System.out.println(dp(array, sum));
+        //System.out.println(mydp(array, sum));
+        System.out.println(dp2(array,sum));
     }
 }
