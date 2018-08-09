@@ -30,7 +30,7 @@ MixedColor, NotTwo, Fibonacci, LargestOddDivisor, NumGame: math
 ### other
 BigIntegerAdd, LostThree, RadixChange, Radix: BigInteger
 
-LikeWord: regular expression
+LikeWord, DeleteSameChar: regular expression
 
 TwoSorts: lexicographical order
 
