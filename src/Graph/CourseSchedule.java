@@ -13,7 +13,9 @@ public class CourseSchedule {
         ArrayList[] graph = new ArrayList[numCourses];
         //每个节点的入度
         int[] degree = new int[numCourses];
+        //入度为0的节点
         LinkedList queue = new LinkedList();
+        //遍历的节点
         int count = 0;
         //邻接链表
         for (int i = 0; i < numCourses; i++) {

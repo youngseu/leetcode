@@ -1,22 +1,23 @@
-package Niuke.test;
-
+package Niuke.Sword;
 
 import java.util.Scanner;
 
-public class test {
+//题目描述
+//把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出
+//旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元
+//素都大于0，若数组大小为0，请返回0
+public class MinNumberInRotateArray {
 
     public static int minNumberInRotateArray(int[] array) {
         if (array.length == 0) return 0;
         if (array.length == 1) return array[0];
         int start = 0, end = array.length - 1, mid = 0;
-//        int result = array[0];
         while (array[start] >= array[end]) {
             if (end - start == 1) {
-//                result = array[end];
                 mid = end;
                 break;
             }
-            mid = (start + end) >> 1;
+            mid = (start + end) / 2;
             if (array[start] == array[end] && array[start] == array[mid]) {
                 return Minvalue(array, start, end);
             }
@@ -25,7 +26,6 @@ public class test {
             else //if (array[mid] < array[end])
                 end = mid;
         }
-//        System.out.println(array[mid]);
         return array[mid];
     }
 

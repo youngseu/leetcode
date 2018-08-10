@@ -1,5 +1,7 @@
 package Backtracing;
 
+import com.sun.org.apache.regexp.internal.RE;
+
 //79 problem
 //Word Search
 //Given a 2D board and a word, find if the word exists in the grid.
@@ -15,7 +17,7 @@ package Backtracing;
 //  ['A','D','E','E']
 //]
 public class WordSearch {
-    public static boolean exist(char[][] board, String word) {
+    public static boolean myexist(char[][] board, String word) {
         int row = board.length;
         int col = board[0].length;
         System.out.println(row);
@@ -66,7 +68,7 @@ public class WordSearch {
     }
 
     //参考答案
-    public class Reference {
+    public static class Reference {
         public boolean exist(char[][] board, String word) {
             char[] w = word.toCharArray();
             for (int i = 0; i < board.length; i++) {
@@ -85,11 +87,11 @@ public class WordSearch {
             if (row < 0 || col < 0 || row == board.length || col == board[0].length) return false;
             if (board[row][col] != word[i]) return false;
             board[row][col] ^= 256;
-            boolean exist = exist(board, row,col+1,word,i+1)
-                    ||exist(board, row,col-1,word,i+1)
-                    ||exist(board, row+1,col,word,i+1)
-                    ||exist(board, row-1,col,word,i+1);
-            board[row][col] ^=256;
+            boolean exist = exist(board, row, col + 1, word, i + 1)
+                    || exist(board, row, col - 1, word, i + 1)
+                    || exist(board, row + 1, col, word, i + 1)
+                    || exist(board, row - 1, col, word, i + 1);
+            board[row][col] ^= 256;
             return exist;
         }
 
@@ -97,7 +99,11 @@ public class WordSearch {
 
 
     public static void main(String[] args) {
-        if (exist(new char[][]{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCESEEDAS"))
+        if (myexist(new char[][]{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}},
+                "ABCESEEDAS"))
             System.out.println("yes");
+        Reference rf = new Reference();
+        System.out.println(rf.exist(new char[][]{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}},
+                "ABCESEEDAS"));
     }
 }

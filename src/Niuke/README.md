@@ -27,15 +27,17 @@ Restaurant: greedy
 ### math
 MixedColor, NotTwo, Fibonacci, LargestOddDivisor, NumGame: math
 
+### tree
+RandomNum: TreeSet
+Xor: trie
+
 ### other
 BigIntegerAdd, LostThree, RadixChange, Radix: BigInteger
 
-LikeWord, DeleteSameChar: regular expression
+LikeWord, DeleteSameChar, SuperBrain: regular expression
 
 TwoSorts: lexicographical order
 
 CountPalindrome: StringBuilder can reverse and insert(int, String)
 
 ConstructQueue, HungryYi, DarkNum: regulation
-
-RandomNum: TreeSet
