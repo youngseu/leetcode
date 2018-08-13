@@ -52,7 +52,7 @@ public class CoinChange {
         return dp[amount] > amount ? -1 : dp[amount];
     }
 
-    //Backtracing time out
+    //Backtraking time out
     public int coinChange2(int[] coins, int amount) {
         List<List<Integer>> res = new ArrayList<>();
         backtracing(res, new ArrayList(), amount, coins, 0);

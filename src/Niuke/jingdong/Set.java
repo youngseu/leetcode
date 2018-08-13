@@ -1,4 +1,4 @@
-package Niuke.other;
+package Niuke.jingdong;
 
 import java.util.Iterator;
 import java.util.Scanner;

@@ -3,7 +3,7 @@ study of leetcode by java
 
 ###ArrayorList
 
-###Backtracing
+###Backtraking
 
 ###Base
 

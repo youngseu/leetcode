@@ -18,7 +18,7 @@ public class BinarySearch {
                 high = mid - 1;
             }
         }
-        return -1;
+        return -low;
     }
 
     public static void main(String[] args) {
