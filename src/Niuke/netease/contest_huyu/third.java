@@ -2,8 +2,21 @@ package Niuke.netease.contest_huyu;
 
 import java.util.*;
 
+//题目描述
+//给你n个a,m个z组成所有可能的字符串，并将字符串按字典序从小到大排列，输出第k个字符串。
+//若不存在，输出-1。
+//输入描述
+//第一行为三个数，分别为a的个数n,z的个数m,第k个字符串。
+//输出描述
+//第k个字符串
+//输入
+//2 2 6
+//输出
+//zzaa
 public class third {
     static int sum;
+
+    //overtime
     public static List<List<Integer>> permute(int[] nums, int target) {
         List<List<Integer>> res = new LinkedList<>();
         Set<List<Integer>> tmp = new HashSet<>();
@@ -42,7 +55,7 @@ public class third {
             nums[i] = 'a' - 'a';
         for (int i = 0; i < m; i++)
             nums[i] = 'z' - 'a';
-        sum = 0*n+25*m;
+        sum = 0 * n + 25 * m;
         permute(nums, target);
     }
 }

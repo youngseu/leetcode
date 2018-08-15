@@ -1,4 +1,4 @@
-package Niuke.Sword;
+package Niuke.sword;
 
 import java.util.Scanner;
 
