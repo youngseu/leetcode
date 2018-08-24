@@ -1,4 +1,4 @@
-package DFSAndBFS;
+package Tree;
 
 import Base.TreeNode;
 

@@ -22,8 +22,8 @@ public class BinaryTreeLevelOrderTraversal {
             for (int i = 0; i < levelSum; i++) {
                 TreeNode temp = queue.poll();
                 sublist.add(temp.val);
-                if (temp.left !=null) queue.offer(temp.left);
-                if (temp.right !=null) queue.offer(temp.right);
+                if (temp.left != null) queue.offer(temp.left);
+                if (temp.right != null) queue.offer(temp.right);
             }
             res.add(sublist);
         }
@@ -43,7 +43,7 @@ public class BinaryTreeLevelOrderTraversal {
             levelList.add(new ArrayList<Integer>());
         }
         levelList.get(level).add(node.val);
-        helper(node.left, levelList, level+1);
-        helper(node.right, levelList, level+1);
+        helper(node.left, levelList, level + 1);
+        helper(node.right, levelList, level + 1);
     }
 }

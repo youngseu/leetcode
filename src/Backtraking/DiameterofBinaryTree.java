@@ -19,7 +19,6 @@ public class DiameterofBinaryTree {
     public static int diameter = 0;
 
     public int diameterOfBinaryTree(TreeNode root) {
-        diameter = 0;
         depth(root);
         return diameter;
     }
