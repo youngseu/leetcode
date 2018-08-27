@@ -17,7 +17,7 @@ import java.util.*;
 // \     \
 //  5     4       <---
 public class BinaryTreeRightSideView {
-    //dfs
+    //bfs
     //Time complexity : O(n)
     //Space complexity : O(n)
     public List<Integer> rightSideView(TreeNode root) {
