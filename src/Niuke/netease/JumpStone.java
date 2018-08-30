@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-//眺石板
+//跳石板
 //题目描述
 //小易来到了一条石板路前，每块石板上从1挨着编号为：1、2、3.......
 //这条石板路要根据特殊的规则才能前进：对于小易当前所在的编号为K的 石板，小易单次只能往前跳K的一个约数(不含1和K)步，

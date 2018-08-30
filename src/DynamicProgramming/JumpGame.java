@@ -25,4 +25,17 @@ public class JumpGame {
         }
         return lastPost == 0;
     }
+
+    //slow
+    public boolean canJump2(int[] nums) {
+        int[] flags = new int[nums.length];
+        flags[0] = 1;
+        for (int i = 0; i < nums.length && flags[i] == 1; i++) {
+            for (int j = i; j <= nums[i] + i; j++) {
+                if (j >= nums.length - 1) return true;
+                flags[j] = 1;
+            }
+        }
+        return false;
+    }
 }

@@ -25,5 +25,11 @@ public class test {
         pq.add(4);
         System.out.println(pq.peek());
         System.out.println(pq.poll());
+
+        System.out.println("test");
+        int a = -1;
+        boolean flag = true;
+        a = flag ? 0 : 1;
+        System.out.println(a);
     }
 }
