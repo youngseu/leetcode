@@ -1,4 +1,4 @@
-package Backtraking;
+package Tree;
 
 import Base.TreeNode;
 
