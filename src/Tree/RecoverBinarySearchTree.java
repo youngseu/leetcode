@@ -23,8 +23,8 @@ public class RecoverBinarySearchTree {
     private void recursive(TreeNode root) {
         if (root == null) return;
         recursive(root.left);
-        //if (first == null && prev.val >= root.val) first = prev;
-        //if (first != null && prev.val >= root.val) second = root;
+        //if (firstExtended == null && prev.val >= root.val) firstExtended = prev;
+        //if (firstExtended != null && prev.val >= root.val) second = root;
         if (prev != null && prev.val > root.val) {
             if (first == null) {
                 first = prev;

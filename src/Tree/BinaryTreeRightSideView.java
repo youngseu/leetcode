@@ -37,7 +37,7 @@ public class BinaryTreeRightSideView {
             if (node != null) {
                 maxDepth = Math.max(maxDepth, depth);
 
-                //first node encounter depth
+                //firstExtended node encounter depth
                 if (!valueAtDepth.containsKey(depth)) {
                     valueAtDepth.put(depth, node.val);
                 }

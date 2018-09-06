@@ -26,10 +26,13 @@ public class test {
         System.out.println(pq.peek());
         System.out.println(pq.poll());
 
-        System.out.println("test");
+        System.out.println("firstExtended");
         System.out.println(1 ^ 1);
         System.out.println(1 ^ 0);
         System.out.println(0 ^ 0);
 
+        int[][] array = {{1, 2, 3}, {0, 0, 0}, {4, 5, 6}};
+        Arrays.sort(array, (o1, o2) -> o1[0] - o2[0]);
+        System.out.println();
     }
 }

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 //45 problem
 //Jump Game II
-//Given an array of non-negative integers, you are initially positioned at the first index of
+//Given an array of non-negative integers, you are initially positioned at the firstExtended index of
 //the array.
 //Each element in the array represents your maximum jump length at that position.
 //Your goal is to reach the last index in the minimum number of jumps.

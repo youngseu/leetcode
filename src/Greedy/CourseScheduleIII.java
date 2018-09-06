@@ -24,7 +24,7 @@ import java.util.PriorityQueue;
 //每组数据给出最终期限和持续时间
 public class CourseScheduleIII {
     public int scheduleCourse(int[][] courses) {
-        //Sort the courses by their deadlines (Greedy! We have to deal with courses with early deadlines first)
+        //Sort the courses by their deadlines (Greedy! We have to deal with courses with early deadlines firstExtended)
         Arrays.sort(courses, (a, b) -> a[1] - b[1]);
         //使用lambda表达式，简化代码
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);

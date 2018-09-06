@@ -15,7 +15,7 @@ study of leetcode by java
 
 ###Greedy
 
-###HashTable
+###HashTableAndSet
 
 ###Math
 

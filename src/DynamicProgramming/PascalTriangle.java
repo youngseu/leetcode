@@ -5,7 +5,7 @@ import java.util.List;
 
 //118 problem
 //Pascal's Triangle
-//Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
+//Given a non-negative integer numRows, generate the firstExtended numRows of Pascal's triangle.
 public class PascalTriangle {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> res = new ArrayList<>();
