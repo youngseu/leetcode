@@ -31,6 +31,11 @@ public class string_test {
         BigInteger bi = new BigInteger(e, 16);
         System.out.println(bi.toString(10));
 
-        System.out.println(Integer.parseInt(e,16));
+        System.out.println(Integer.parseInt(e, 16));
+
+        String f = "222248A";
+        BigInteger b6 = new BigInteger(f, 16);
+        System.out.println(b6.toString(10));
+
     }
 }
