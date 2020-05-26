@@ -1,5 +1,6 @@
 package ArrayorList;
 
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 //295 problem
@@ -30,6 +31,7 @@ public class FindMedianfromDataStream {
     public FindMedianfromDataStream() {
         hi = new PriorityQueue<>();
         lo = new PriorityQueue<>((o1, o2) -> o2 - o1);
+        // lo = new PriorityQueue<>(Collections.reverseOrder());
     }
 
     public void addNum(int num) {
